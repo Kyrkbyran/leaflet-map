@@ -8,79 +8,18 @@
   <meta name="CocoaVersion" content="2575.7">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
 <p class="p1">&lt;!DOCTYPE html&gt;</p>
 <p class="p1">&lt;html lang="sv"&gt;</p>
 <p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Karta med min plats&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Leaflet CSS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#map {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Test HTML&lt;/title&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="map"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Leaflet JS --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://unpkg.com/leaflet/dist/leaflet.js"&gt;&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Skapa kartan med en fallback-position (Stockholm)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const map = L.map('map').setView([59.3293, 18.0686], 12);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Lägg till OpenStreetMap tiles</p>
-<p class="p1"><span class="Apple-converted-space">    </span>L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>attribution: '© OpenStreetMap-bidragsgivare'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}).addTo(map);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Försök hämta användarens position</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (navigator.geolocation) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>navigator.geolocation.getCurrentPosition(</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(pos) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const lat = pos.coords.latitude;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const lng = pos.coords.longitude;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>// Flytta kartan till användarens plats</p>
-<p class="p1"><span class="Apple-converted-space">          </span>map.setView([lat, lng], 13);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>// Markör för användarens plats</p>
-<p class="p1"><span class="Apple-converted-space">          </span>L.marker([lat, lng])</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.addTo(map)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.bindPopup("Du är här!")</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.openPopup();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>},</p>
-<p class="p1"><span class="Apple-converted-space">        </span>(err) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>console.warn("Kunde inte hämta plats:", err.message);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>alert("Din webbläsare stöder inte geolocation.");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Exempel på extra platser</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const platser = [</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ namn: "Uppsala", lat: 59.8586, lng: 17.6389 },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ namn: "Göteborg", lat: 57.7089, lng: 11.9746 },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{ namn: "Malmö", lat: 55.6050, lng: 13.0038 }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>platser.forEach(p =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>L.marker([p.lat, p.lng])</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.addTo(map)</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.bindPopup(p.namn);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Hej från Netlify!&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p&gt;Om du ser detta körs HTML korrekt 🎉&lt;/p&gt;</p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
